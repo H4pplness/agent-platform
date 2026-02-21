@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-slate-900 antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-lg hover:bg-blue-700 hover:shadow-xl hover:scale-105 transition-all duration-200 cursor-pointer;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-white text-blue-600 font-semibold rounded-full border-2 border-blue-200 hover:border-blue-600 hover:shadow-md hover:scale-105 transition-all duration-200 cursor-pointer;
+  }
+
+  .section-title {
+    @apply text-4xl font-bold text-slate-900 tracking-tight;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-slate-500 mt-4 max-w-2xl mx-auto;
+  }
+
+  .feature-card {
+    @apply p-8 bg-white border border-slate-200 rounded-2xl hover:shadow-lg hover:border-blue-200 transition-all duration-300 cursor-default;
+  }
+
+  .pricing-card {
+    @apply p-8 bg-white border-2 border-slate-200 rounded-3xl transition-all duration-300;
+  }
+
+  .pricing-card-pro {
+    @apply p-8 bg-white border-2 border-blue-600 rounded-3xl shadow-xl relative;
+  }
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #2563EB 0%, #0EA5E9 50%, #8B5CF6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animated gradient bg */
+.gradient-bg {
+  background: linear-gradient(-45deg, #EFF6FF, #F0F9FF, #EDE9FE, #F0FDF4);
+  background-size: 400% 400%;
+  animation: gradient 8s ease infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

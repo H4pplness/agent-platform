@@ -1,0 +1,119 @@
+<nav
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  [class.bg-white]="isScrolled()"
+  [class.shadow-md]="isScrolled()"
+  [class.border-b]="isScrolled()"
+  [class.border-slate-200]="isScrolled()"
+  [class.bg-transparent]="!isScrolled()"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+
+      <!-- Logo -->
+      <div class="flex items-center gap-2 cursor-pointer" (click)="scrollTo('hero')">
+        <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <span class="text-xl font-bold text-slate-900">AgentAI</span>
+      </div>
+
+      <!-- Desktop Nav Links -->
+      <div class="hidden md:flex items-center gap-8">
+        <button (click)="scrollTo('hero')"
+          class="text-slate-600 hover:text-blue-600 font-medium transition-colors duration-200">
+          {{ i18n.t().navbar.home }}
+        </button>
+        <button (click)="scrollTo('features')"
+          class="text-slate-600 hover:text-blue-600 font-medium transition-colors duration-200">
+          {{ i18n.t().navbar.features }}
+        </button>
+        <button (click)="scrollTo('testimonials')"
+          class="text-slate-600 hover:text-blue-600 font-medium transition-colors duration-200">
+          {{ i18n.t().navbar.testimonials }}
+        </button>
+        <button (click)="scrollTo('pricing')"
+          class="text-slate-600 hover:text-blue-600 font-medium transition-colors duration-200">
+          {{ i18n.t().navbar.pricing }}
+        </button>
+      </div>
+
+      <!-- Right side: Lang toggle + CTA -->
+      <div class="hidden md:flex items-center gap-3">
+
+        <!-- Language Toggle -->
+        <button
+          (click)="i18n.toggle()"
+          class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 text-xs font-semibold
+                 text-slate-600 hover:border-blue-500 hover:text-blue-600 transition-all duration-200"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+          </svg>
+          {{ i18n.lang() === 'en' ? 'VI' : 'EN' }}
+        </button>
+
+        <button class="text-slate-600 hover:text-blue-600 font-medium transition-colors duration-200">
+          {{ i18n.t().navbar.signIn }}
+        </button>
+        <button class="btn-primary text-sm px-5 py-2.5">
+          {{ i18n.t().navbar.getStarted }}
+        </button>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button
+        class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors"
+        (click)="toggleMobileMenu()"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          @if (!isMobileMenuOpen()) {
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+          } @else {
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M6 18L18 6M6 6l12 12" />
+          }
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  @if (isMobileMenuOpen()) {
+    <div class="md:hidden bg-white border-t border-slate-200 px-4 py-4 flex flex-col gap-3 shadow-lg">
+      <button (click)="scrollTo('hero')"
+        class="text-left py-2 text-slate-700 font-medium hover:text-blue-600 transition-colors">
+        {{ i18n.t().navbar.home }}
+      </button>
+      <button (click)="scrollTo('features')"
+        class="text-left py-2 text-slate-700 font-medium hover:text-blue-600 transition-colors">
+        {{ i18n.t().navbar.features }}
+      </button>
+      <button (click)="scrollTo('testimonials')"
+        class="text-left py-2 text-slate-700 font-medium hover:text-blue-600 transition-colors">
+        {{ i18n.t().navbar.testimonials }}
+      </button>
+      <button (click)="scrollTo('pricing')"
+        class="text-left py-2 text-slate-700 font-medium hover:text-blue-600 transition-colors">
+        {{ i18n.t().navbar.pricing }}
+      </button>
+      <hr class="border-slate-200">
+      <!-- Mobile Lang toggle -->
+      <button (click)="i18n.toggle()"
+        class="text-left py-2 text-blue-600 font-medium flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+        </svg>
+        {{ i18n.lang() === 'en' ? 'Chuyển sang Tiếng Việt' : 'Switch to English' }}
+      </button>
+      <button class="btn-primary w-full text-center text-sm py-3">
+        {{ i18n.t().navbar.getStarted }}
+      </button>
+    </div>
+  }
+</nav>
