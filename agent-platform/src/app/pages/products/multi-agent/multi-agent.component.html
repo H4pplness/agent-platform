@@ -8,20 +8,20 @@
       <div>
         <div class="flex items-center gap-2 mb-5">
           <span class="text-xs font-bold text-indigo-200 bg-white/10 px-3 py-1 rounded-full tracking-wider uppercase">Product 02</span>
-          <span class="text-xs text-indigo-300">Enterprise AI Platform</span>
+          <span class="text-xs text-indigo-300">{{ i18n.t().productPages.multiAgent.hero.tag }}</span>
         </div>
         <h1 class="text-4xl sm:text-5xl font-extrabold text-white leading-tight mb-5">
           Multi-Agent<br>System
         </h1>
         <p class="text-indigo-100 text-lg leading-relaxed mb-8 max-w-lg">
-          For large enterprises with multiple systems that need to work in sync. AI agents coordinate across your ERP, CRM, SCM and custom platforms — delivering fully automated, end-to-end pipelines across every department.
+          {{ i18n.t().productPages.multiAgent.hero.subtitle }}
         </p>
         <div class="flex flex-wrap gap-3">
           <button class="px-6 py-3 bg-white text-indigo-700 font-semibold rounded-xl hover:bg-indigo-50 transition-colors text-sm shadow-sm">
-            Talk to Sales
+            {{ i18n.t().productPages.multiAgent.hero.ctaPrimary }}
           </button>
           <a routerLink="/docs" class="px-6 py-3 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/20 transition-colors text-sm border border-white/20">
-            Read Documentation →
+            {{ i18n.t().productPages.multiAgent.hero.ctaSecondary }}
           </a>
         </div>
       </div>
@@ -29,20 +29,20 @@
       <!-- Stats bar -->
       <div class="grid grid-cols-2 gap-4 pb-4">
         <div class="bg-white/10 rounded-2xl p-5 border border-white/10 backdrop-blur-sm">
-          <div class="text-3xl font-extrabold text-white mb-1">Unlimited</div>
-          <div class="text-sm text-indigo-200">Agents in pipeline</div>
+          <div class="text-3xl font-extrabold text-white mb-1">{{ statValues[0] }}</div>
+          <div class="text-sm text-indigo-200">{{ i18n.t().productPages.multiAgent.hero.stats[0].label }}</div>
         </div>
         <div class="bg-white/10 rounded-2xl p-5 border border-white/10 backdrop-blur-sm">
-          <div class="text-3xl font-extrabold text-white mb-1">Any</div>
-          <div class="text-sm text-indigo-200">System or platform</div>
+          <div class="text-3xl font-extrabold text-white mb-1">{{ statValues[1] }}</div>
+          <div class="text-sm text-indigo-200">{{ i18n.t().productPages.multiAgent.hero.stats[1].label }}</div>
         </div>
         <div class="bg-white/10 rounded-2xl p-5 border border-white/10 backdrop-blur-sm">
-          <div class="text-3xl font-extrabold text-white mb-1">100%</div>
-          <div class="text-sm text-indigo-200">End-to-end automated</div>
+          <div class="text-3xl font-extrabold text-white mb-1">{{ statValues[2] }}</div>
+          <div class="text-sm text-indigo-200">{{ i18n.t().productPages.multiAgent.hero.stats[2].label }}</div>
         </div>
         <div class="bg-white/10 rounded-2xl p-5 border border-white/10 backdrop-blur-sm">
-          <div class="text-3xl font-extrabold text-white mb-1">SOC 2</div>
-          <div class="text-sm text-indigo-200">Enterprise certified</div>
+          <div class="text-3xl font-extrabold text-white mb-1">{{ statValues[3] }}</div>
+          <div class="text-sm text-indigo-200">{{ i18n.t().productPages.multiAgent.hero.stats[3].label }}</div>
         </div>
       </div>
     </div>
@@ -53,13 +53,19 @@
 <section class="py-24 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-14">
-      <span class="inline-block text-sm font-semibold text-indigo-600 bg-indigo-50 px-4 py-1.5 rounded-full mb-4">Capabilities</span>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Built for enterprise complexity</h2>
-      <p class="text-slate-500 mt-4 max-w-xl mx-auto">Four core pillars that make Multi-Agent System the right choice for large-scale, cross-department automation.</p>
+      <span class="inline-block text-sm font-semibold text-indigo-600 bg-indigo-50 px-4 py-1.5 rounded-full mb-4">
+        {{ i18n.t().productPages.multiAgent.capabilities.badge }}
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+        {{ i18n.t().productPages.multiAgent.capabilities.title }}
+      </h2>
+      <p class="text-slate-500 mt-4 max-w-xl mx-auto">
+        {{ i18n.t().productPages.multiAgent.capabilities.subtitle }}
+      </p>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-      @for (cap of capabilities; track cap.title) {
+      @for (cap of capabilities(); track cap.title) {
         <div class="flex items-start gap-5 p-7 rounded-2xl border border-slate-200 hover:border-indigo-100 hover:shadow-md transition-all duration-300 bg-white">
           <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 {{ cap.color }}">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -80,12 +86,16 @@
 <section class="py-24 bg-slate-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-14">
-      <span class="inline-block text-sm font-semibold text-indigo-600 bg-indigo-50 px-4 py-1.5 rounded-full mb-4">How it works</span>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Enterprise deployment in 4 phases</h2>
+      <span class="inline-block text-sm font-semibold text-indigo-600 bg-indigo-50 px-4 py-1.5 rounded-full mb-4">
+        {{ i18n.t().productPages.multiAgent.howItWorks.badge }}
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+        {{ i18n.t().productPages.multiAgent.howItWorks.title }}
+      </h2>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      @for (step of howItWorks; track step.step) {
+      @for (step of howItWorks(); track step.step) {
         <div class="relative bg-white rounded-2xl p-7 border border-slate-200 hover:shadow-md transition-shadow">
           <div class="text-5xl font-extrabold text-indigo-100 mb-4 leading-none">{{ step.step }}</div>
           <h3 class="font-bold text-slate-900 mb-2">{{ step.title }}</h3>
@@ -101,13 +111,17 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
       <div>
-        <span class="inline-block text-sm font-semibold text-indigo-600 bg-indigo-50 px-4 py-1.5 rounded-full mb-4">Use Cases</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-5">What enterprises use Multi-Agent for</h2>
+        <span class="inline-block text-sm font-semibold text-indigo-600 bg-indigo-50 px-4 py-1.5 rounded-full mb-4">
+          {{ i18n.t().productPages.multiAgent.useCases.badge }}
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-5">
+          {{ i18n.t().productPages.multiAgent.useCases.title }}
+        </h2>
         <p class="text-slate-500 leading-relaxed mb-8">
-          When a process spans multiple systems and teams, Multi-Agent System handles the orchestration — so your people can focus on decisions, not data movement.
+          {{ i18n.t().productPages.multiAgent.useCases.subtitle }}
         </p>
         <div class="flex flex-wrap gap-3">
-          @for (uc of useCases; track uc.label) {
+          @for (uc of i18n.t().productPages.multiAgent.useCases.items; track uc.label) {
             <span class="flex items-center gap-2 px-4 py-2 bg-indigo-50 text-indigo-700 rounded-xl text-sm font-medium border border-indigo-100">
               <span>{{ uc.emoji }}</span>{{ uc.label }}
             </span>
@@ -115,7 +129,7 @@
         </div>
       </div>
 
-      <!-- Testimonial / quote card -->
+      <!-- Testimonial -->
       <div class="bg-gradient-to-br from-indigo-50 to-white rounded-3xl p-8 border border-indigo-100">
         <div class="flex gap-1 mb-5">
           @for (s of [1,2,3,4,5]; track s) {
@@ -125,13 +139,13 @@
           }
         </div>
         <p class="text-slate-700 text-lg leading-relaxed mb-6 italic">
-          "The multi-agent workflow is stable and easy to monitor. It connects our ERP, CRM, and warehouse system seamlessly. Setup took less than a week."
+          "{{ i18n.t().productPages.multiAgent.testimonial.quote }}"
         </p>
         <div class="flex items-center gap-3">
-          <img src="https://i.pravatar.cc/48?img=3" alt="Marcus Chen" class="w-10 h-10 rounded-full">
+          <img src="https://i.pravatar.cc/48?img=3" [alt]="i18n.t().productPages.multiAgent.testimonial.author" class="w-10 h-10 rounded-full">
           <div>
-            <div class="font-semibold text-slate-900 text-sm">Marcus Chen</div>
-            <div class="text-xs text-slate-400">CTO, Nexus Labs</div>
+            <div class="font-semibold text-slate-900 text-sm">{{ i18n.t().productPages.multiAgent.testimonial.author }}</div>
+            <div class="text-xs text-slate-400">{{ i18n.t().productPages.multiAgent.testimonial.role }}</div>
           </div>
         </div>
       </div>
@@ -142,16 +156,18 @@
 <!-- ===================== CTA ===================== -->
 <section class="py-20 bg-slate-900">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Ready to connect your enterprise?</h2>
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+      {{ i18n.t().productPages.multiAgent.cta.title }}
+    </h2>
     <p class="text-slate-400 text-lg mb-10 max-w-xl mx-auto">
-      Talk to our enterprise team. We'll help you design the right multi-agent architecture for your systems.
+      {{ i18n.t().productPages.multiAgent.cta.subtitle }}
     </p>
     <div class="flex items-center justify-center gap-4 flex-wrap">
       <button class="px-7 py-3.5 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-500 transition-colors text-sm">
-        Talk to Sales
+        {{ i18n.t().productPages.multiAgent.cta.primary }}
       </button>
       <a routerLink="/docs" class="px-7 py-3.5 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/20 transition-colors text-sm border border-white/20">
-        Read Documentation →
+        {{ i18n.t().productPages.multiAgent.cta.secondary }}
       </a>
     </div>
   </div>

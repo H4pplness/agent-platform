@@ -2,6 +2,7 @@ import { Component, HostListener, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { I18nService } from '../../core/i18n/i18n.service';
+import { ThemeService } from '../../core/theme/theme.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,6 +12,7 @@ import { I18nService } from '../../core/i18n/i18n.service';
 })
 export class NavbarComponent {
   i18n = inject(I18nService);
+  theme = inject(ThemeService);
   private router = inject(Router);
 
   get isProductsActive() {
@@ -18,7 +20,12 @@ export class NavbarComponent {
   }
 
   get useWhiteText() {
-    return !this.isScrolled() && this.router.url.startsWith('/products');
+    if (!this.isScrolled()) {
+      // Navbar transparent: landing (/) and products pages have dark/colourful hero backgrounds
+      return this.router.url === '/' || this.router.url.startsWith('/products');
+    }
+    // Navbar solid: white in light mode, slate-900 in dark mode
+    return this.theme.isDark();
   }
 
   isScrolled = signal(false);

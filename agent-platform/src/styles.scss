@@ -62,3 +62,37 @@
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+/* ── Dark mode overrides (Landing page) ─────────────────────── */
+.dark body {
+  @apply bg-slate-900 text-slate-100;
+}
+
+.dark .gradient-bg {
+  background: linear-gradient(-45deg, #0F172A, #1E293B, #1E1B4B, #0F172A);
+  background-size: 400% 400%;
+}
+
+.dark .section-title {
+  @apply text-slate-100;
+}
+
+.dark .section-subtitle {
+  @apply text-slate-400;
+}
+
+.dark .feature-card {
+  @apply bg-slate-800 border-slate-700;
+}
+
+.dark .pricing-card {
+  @apply bg-slate-800 border-slate-700;
+}
+
+.dark .pricing-card-pro {
+  @apply bg-slate-800;
+}
+
+.dark .btn-secondary {
+  @apply bg-slate-800 text-blue-400 border-blue-800 hover:border-blue-500 hover:text-blue-300;
+}
