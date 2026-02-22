@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { I18nService } from '../../core/i18n/i18n.service';
 
 @Component({
   selector: 'app-footer',
@@ -6,24 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './footer.component.html',
 })
 export class FooterComponent {
+  i18n = inject(I18nService);
   currentYear = new Date().getFullYear();
-
-  links = [
-    {
-      title: 'Product',
-      items: ['Features', 'Pricing', 'Roadmap', 'Changelog', 'Documentation'],
-    },
-    {
-      title: 'Company',
-      items: ['About', 'Blog', 'Careers', 'Press', 'Contact'],
-    },
-    {
-      title: 'Resources',
-      items: ['API Reference', 'Status', 'Community', 'Tutorials', 'Templates'],
-    },
-    {
-      title: 'Legal',
-      items: ['Privacy Policy', 'Terms of Service', 'Cookie Policy', 'GDPR'],
-    },
-  ];
 }

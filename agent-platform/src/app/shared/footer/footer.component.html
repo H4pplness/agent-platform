@@ -16,7 +16,7 @@
           <span class="text-xl font-bold text-white">AgentAI</span>
         </div>
         <p class="text-sm leading-relaxed mb-6">
-          The AI platform for modern teams. Build, manage and deploy intelligent agents at scale.
+          {{ i18n.t().footer.tagline }}
         </p>
 
         <!-- Social Links -->
@@ -38,7 +38,7 @@
       </div>
 
       <!-- Link Columns -->
-      @for (col of links; track col.title) {
+      @for (col of i18n.t().footer.columns; track col.title) {
         <div>
           <h4 class="text-white font-semibold text-sm mb-4">{{ col.title }}</h4>
           <ul class="space-y-3">
@@ -60,16 +60,16 @@
   <div class="border-t border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
       <p class="text-xs text-slate-500">
-        &copy; {{ currentYear }} AgentAI Platform. All rights reserved.
+        &copy; {{ currentYear }} {{ i18n.t().footer.copyright }}
       </p>
       <div class="flex items-center gap-1 text-xs text-slate-500">
-        <span>Made with</span>
+        <span>{{ i18n.t().footer.madeWith }}</span>
         <svg class="w-4 h-4 text-red-500" fill="currentColor" viewBox="0 0 20 20">
           <path fill-rule="evenodd"
             d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
             clip-rule="evenodd" />
         </svg>
-        <span>for the AI community</span>
+        <span>{{ i18n.t().footer.madeFor }}</span>
       </div>
     </div>
   </div>

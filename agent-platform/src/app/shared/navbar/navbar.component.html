@@ -10,7 +10,7 @@
     <div class="flex items-center justify-between h-16">
 
       <!-- Logo -->
-      <div class="flex items-center gap-2 cursor-pointer" (click)="scrollTo('hero')">
+      <a routerLink="/" class="flex items-center gap-2 cursor-pointer">
         <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
           <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -18,26 +18,85 @@
           </svg>
         </div>
         <span class="text-xl font-bold text-slate-900">AgentAI</span>
-      </div>
+      </a>
 
       <!-- Desktop Nav Links -->
-      <div class="hidden md:flex items-center gap-8">
-        <button (click)="scrollTo('hero')"
-          class="text-slate-600 hover:text-blue-600 font-medium transition-colors duration-200">
+      <div class="hidden md:flex items-center gap-1">
+
+        <!-- Home -->
+        <a routerLink="/" routerLinkActive="text-blue-600" [routerLinkActiveOptions]="{exact: true}"
+          class="px-4 py-2 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-blue-50 font-medium transition-colors duration-200 text-sm">
           {{ i18n.t().navbar.home }}
-        </button>
-        <button (click)="scrollTo('features')"
-          class="text-slate-600 hover:text-blue-600 font-medium transition-colors duration-200">
-          {{ i18n.t().navbar.features }}
-        </button>
-        <button (click)="scrollTo('testimonials')"
-          class="text-slate-600 hover:text-blue-600 font-medium transition-colors duration-200">
-          {{ i18n.t().navbar.testimonials }}
-        </button>
-        <button (click)="scrollTo('pricing')"
-          class="text-slate-600 hover:text-blue-600 font-medium transition-colors duration-200">
-          {{ i18n.t().navbar.pricing }}
-        </button>
+        </a>
+
+        <!-- Products (dropdown) -->
+        <div class="relative"
+          (mouseenter)="openProducts()"
+          (mouseleave)="closeProducts()">
+
+          <a routerLink="/products" routerLinkActive="text-blue-600"
+            class="flex items-center gap-1 px-4 py-2 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-blue-50 font-medium transition-colors duration-200 text-sm">
+            {{ i18n.t().navbar.products }}
+            <svg class="w-4 h-4 transition-transform duration-200"
+              [class.rotate-180]="isProductsOpen()"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </a>
+
+          <!-- Dropdown panel -->
+          @if (isProductsOpen()) {
+            <div
+              class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden z-50"
+              (mouseenter)="openProducts()"
+              (mouseleave)="closeProducts()">
+              <div class="p-2">
+                @for (item of i18n.t().navbar.productItems; track item.name) {
+                  <a routerLink="/products"
+                    class="flex items-start gap-3 px-4 py-3 rounded-xl hover:bg-blue-50 transition-colors duration-150 cursor-pointer group">
+                    <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-blue-200 transition-colors">
+                      <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="text-sm font-semibold text-slate-800 group-hover:text-blue-600 transition-colors">{{ item.name }}</div>
+                      <div class="text-xs text-slate-400 mt-0.5">{{ item.desc }}</div>
+                    </div>
+                  </a>
+                }
+              </div>
+              <div class="px-4 py-3 bg-slate-50 border-t border-slate-100">
+                <a routerLink="/products"
+                  class="flex items-center gap-1.5 text-xs font-semibold text-blue-600 hover:text-blue-700 transition-colors">
+                  View all products
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          }
+        </div>
+
+        <!-- Docs -->
+        <a routerLink="/docs" routerLinkActive="text-blue-600"
+          class="px-4 py-2 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-blue-50 font-medium transition-colors duration-200 text-sm">
+          {{ i18n.t().navbar.docs }}
+        </a>
+
+        <!-- News -->
+        <a routerLink="/news" routerLinkActive="text-blue-600"
+          class="px-4 py-2 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-blue-50 font-medium transition-colors duration-200 text-sm">
+          {{ i18n.t().navbar.news }}
+        </a>
+
+        <!-- About -->
+        <a routerLink="/about" routerLinkActive="text-blue-600"
+          class="px-4 py-2 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-blue-50 font-medium transition-colors duration-200 text-sm">
+          {{ i18n.t().navbar.about }}
+        </a>
       </div>
 
       <!-- Right side: Lang toggle + CTA -->
@@ -56,7 +115,7 @@
           {{ i18n.lang() === 'en' ? 'VI' : 'EN' }}
         </button>
 
-        <button class="text-slate-600 hover:text-blue-600 font-medium transition-colors duration-200">
+        <button class="text-slate-600 hover:text-blue-600 font-medium transition-colors duration-200 text-sm">
           {{ i18n.t().navbar.signIn }}
         </button>
         <button class="btn-primary text-sm px-5 py-2.5">
@@ -84,34 +143,64 @@
 
   <!-- Mobile Menu -->
   @if (isMobileMenuOpen()) {
-    <div class="md:hidden bg-white border-t border-slate-200 px-4 py-4 flex flex-col gap-3 shadow-lg">
-      <button (click)="scrollTo('hero')"
-        class="text-left py-2 text-slate-700 font-medium hover:text-blue-600 transition-colors">
+    <div class="md:hidden bg-white border-t border-slate-200 px-4 py-4 flex flex-col gap-1 shadow-lg">
+
+      <a routerLink="/" (click)="closeMobileMenu()"
+        class="py-2.5 px-3 rounded-lg text-slate-700 font-medium hover:text-blue-600 hover:bg-blue-50 transition-colors text-sm">
         {{ i18n.t().navbar.home }}
-      </button>
-      <button (click)="scrollTo('features')"
-        class="text-left py-2 text-slate-700 font-medium hover:text-blue-600 transition-colors">
-        {{ i18n.t().navbar.features }}
-      </button>
-      <button (click)="scrollTo('testimonials')"
-        class="text-left py-2 text-slate-700 font-medium hover:text-blue-600 transition-colors">
-        {{ i18n.t().navbar.testimonials }}
-      </button>
-      <button (click)="scrollTo('pricing')"
-        class="text-left py-2 text-slate-700 font-medium hover:text-blue-600 transition-colors">
-        {{ i18n.t().navbar.pricing }}
-      </button>
-      <hr class="border-slate-200">
+      </a>
+
+      <!-- Products with sub-items -->
+      <div>
+        <button (click)="toggleMobileProducts()"
+          class="w-full flex items-center justify-between py-2.5 px-3 rounded-lg text-slate-700 font-medium hover:text-blue-600 hover:bg-blue-50 transition-colors text-sm">
+          {{ i18n.t().navbar.products }}
+          <svg class="w-4 h-4 transition-transform duration-200"
+            [class.rotate-180]="isMobileProductsOpen()"
+            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        @if (isMobileProductsOpen()) {
+          <div class="pl-4 mt-1 space-y-1 border-l-2 border-blue-100 ml-3">
+            @for (item of i18n.t().navbar.productItems; track item.name) {
+              <a routerLink="/products" (click)="closeMobileMenu()"
+                class="block py-2 px-3 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-colors text-sm">
+                <span class="font-medium">{{ item.name }}</span>
+                <span class="block text-xs text-slate-400 mt-0.5">{{ item.desc }}</span>
+              </a>
+            }
+          </div>
+        }
+      </div>
+
+      <a routerLink="/docs" (click)="closeMobileMenu()"
+        class="py-2.5 px-3 rounded-lg text-slate-700 font-medium hover:text-blue-600 hover:bg-blue-50 transition-colors text-sm">
+        {{ i18n.t().navbar.docs }}
+      </a>
+
+      <a routerLink="/news" (click)="closeMobileMenu()"
+        class="py-2.5 px-3 rounded-lg text-slate-700 font-medium hover:text-blue-600 hover:bg-blue-50 transition-colors text-sm">
+        {{ i18n.t().navbar.news }}
+      </a>
+
+      <a routerLink="/about" (click)="closeMobileMenu()"
+        class="py-2.5 px-3 rounded-lg text-slate-700 font-medium hover:text-blue-600 hover:bg-blue-50 transition-colors text-sm">
+        {{ i18n.t().navbar.about }}
+      </a>
+
+      <hr class="border-slate-200 my-2">
+
       <!-- Mobile Lang toggle -->
       <button (click)="i18n.toggle()"
-        class="text-left py-2 text-blue-600 font-medium flex items-center gap-2">
+        class="text-left py-2 px-3 text-blue-600 font-medium flex items-center gap-2 text-sm">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
             d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
         </svg>
         {{ i18n.lang() === 'en' ? 'Chuyển sang Tiếng Việt' : 'Switch to English' }}
       </button>
-      <button class="btn-primary w-full text-center text-sm py-3">
+      <button class="btn-primary w-full text-center text-sm py-3 mt-1">
         {{ i18n.t().navbar.getStarted }}
       </button>
     </div>

@@ -1,0 +1,62 @@
+<!-- ===================== DOCS HERO ===================== -->
+<section class="pt-32 pb-16 bg-gradient-to-b from-slate-50 to-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <span class="inline-block text-sm font-semibold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4">
+      {{ i18n.t().pages.docs.badge }}
+    </span>
+    <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
+      {{ i18n.t().pages.docs.title }}
+    </h1>
+    <p class="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed mb-10">
+      {{ i18n.t().pages.docs.subtitle }}
+    </p>
+    <!-- Search bar placeholder -->
+    <div class="max-w-xl mx-auto relative">
+      <div class="flex items-center bg-white border-2 border-slate-200 rounded-xl px-4 py-3 shadow-sm hover:border-blue-400 transition-colors duration-200">
+        <svg class="w-5 h-5 text-slate-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0" />
+        </svg>
+        <span class="text-slate-400 text-sm">Search documentation...</span>
+        <span class="ml-auto text-xs text-slate-300 border border-slate-200 rounded px-1.5 py-0.5">⌘K</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DOC CATEGORIES ===================== -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      @for (cat of categories; track cat.label) {
+        <div class="group rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:border-blue-100 transition-all duration-300 cursor-pointer bg-white">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 {{ cat.color }}">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="cat.icon" />
+            </svg>
+          </div>
+          <h3 class="text-base font-semibold text-slate-900 mb-2">{{ cat.label }}</h3>
+          <!-- Placeholder lines -->
+          <div class="space-y-1.5">
+            <div class="h-3 bg-slate-100 rounded w-full"></div>
+            <div class="h-3 bg-slate-100 rounded w-4/5"></div>
+          </div>
+          <div class="mt-4 flex items-center text-blue-600 text-sm font-medium opacity-60">
+            <span>View docs</span>
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Coming soon banner -->
+    <div class="mt-16 text-center py-12 rounded-2xl bg-slate-50 border border-slate-200">
+      <span class="text-4xl mb-4 block">📚</span>
+      <h3 class="text-xl font-bold text-slate-900 mb-2">{{ i18n.t().pages.docs.comingSoon }}</h3>
+      <p class="text-slate-500 text-sm">Full documentation will be available soon.</p>
+    </div>
+  </div>
+</section>
+
+<app-footer />

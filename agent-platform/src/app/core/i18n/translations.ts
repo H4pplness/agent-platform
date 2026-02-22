@@ -3,11 +3,13 @@ export type Language = 'en' | 'vi';
 export interface Translations {
   navbar: {
     home: string;
-    features: string;
-    testimonials: string;
-    pricing: string;
+    products: string;
+    docs: string;
+    news: string;
+    about: string;
     signIn: string;
     getStarted: string;
+    productItems: { name: string; desc: string }[];
   };
   hero: {
     badge: string;
@@ -66,17 +68,50 @@ export interface Translations {
     madeWith: string;
     madeFor: string;
   };
+  pages: {
+    products: {
+      badge: string;
+      title: string;
+      subtitle: string;
+      comingSoon: string;
+    };
+    docs: {
+      badge: string;
+      title: string;
+      subtitle: string;
+      comingSoon: string;
+    };
+    news: {
+      badge: string;
+      title: string;
+      subtitle: string;
+      comingSoon: string;
+    };
+    about: {
+      badge: string;
+      title: string;
+      subtitle: string;
+      comingSoon: string;
+    };
+  };
 }
 
 export const translations: Record<Language, Translations> = {
   en: {
     navbar: {
       home: 'Home',
-      features: 'Features',
-      testimonials: 'Testimonials',
-      pricing: 'Pricing',
+      products: 'Products',
+      docs: 'Docs',
+      news: 'News',
+      about: 'About',
       signIn: 'Sign In',
       getStarted: 'Get Started Free',
+      productItems: [
+        { name: 'Agent Builder', desc: 'Define your product here' },
+        { name: 'Automation Engine', desc: 'Define your product here' },
+        { name: 'Analytics Suite', desc: 'Define your product here' },
+        { name: 'Enterprise Platform', desc: 'Define your product here' },
+      ],
     },
 
     hero: {
@@ -220,6 +255,33 @@ export const translations: Record<Language, Translations> = {
       madeWith: 'Made with',
       madeFor: 'for the AI community',
     },
+
+    pages: {
+      products: {
+        badge: 'Products',
+        title: 'Our Products & Solutions',
+        subtitle: 'Powerful tools designed to help your team build, automate, and scale with AI.',
+        comingSoon: 'Coming Soon',
+      },
+      docs: {
+        badge: 'Documentation',
+        title: 'Developer Documentation',
+        subtitle: 'Everything you need to integrate and build with AgentAI APIs and SDKs.',
+        comingSoon: 'Coming Soon',
+      },
+      news: {
+        badge: 'News & Updates',
+        title: 'Latest from AgentAI',
+        subtitle: 'Product updates, company news, and insights from our team.',
+        comingSoon: 'Coming Soon',
+      },
+      about: {
+        badge: 'About Us',
+        title: 'Building the future of AI automation',
+        subtitle: 'We\'re a team of engineers, designers and AI researchers on a mission to make intelligent automation accessible to everyone.',
+        comingSoon: 'Coming Soon',
+      },
+    },
   },
 
   // ─────────────────────────────────────────────────────────────
@@ -228,11 +290,18 @@ export const translations: Record<Language, Translations> = {
   vi: {
     navbar: {
       home: 'Trang chủ',
-      features: 'Tính năng',
-      testimonials: 'Đánh giá',
-      pricing: 'Bảng giá',
+      products: 'Sản phẩm',
+      docs: 'Tài liệu',
+      news: 'Tin tức',
+      about: 'Giới thiệu',
       signIn: 'Đăng nhập',
       getStarted: 'Bắt đầu miễn phí',
+      productItems: [
+        { name: 'Agent Builder', desc: 'Tự định nghĩa sản phẩm tại đây' },
+        { name: 'Automation Engine', desc: 'Tự định nghĩa sản phẩm tại đây' },
+        { name: 'Analytics Suite', desc: 'Tự định nghĩa sản phẩm tại đây' },
+        { name: 'Enterprise Platform', desc: 'Tự định nghĩa sản phẩm tại đây' },
+      ],
     },
 
     hero: {
@@ -375,6 +444,33 @@ export const translations: Record<Language, Translations> = {
       copyright: 'AgentAI Platform. Tất cả quyền được bảo lưu.',
       madeWith: 'Làm với',
       madeFor: 'cho cộng đồng AI',
+    },
+
+    pages: {
+      products: {
+        badge: 'Sản phẩm',
+        title: 'Sản phẩm & Giải pháp',
+        subtitle: 'Các công cụ mạnh mẽ giúp đội nhóm của bạn xây dựng, tự động hóa và mở rộng với AI.',
+        comingSoon: 'Sắp ra mắt',
+      },
+      docs: {
+        badge: 'Tài liệu',
+        title: 'Tài liệu dành cho lập trình viên',
+        subtitle: 'Mọi thứ bạn cần để tích hợp và xây dựng với APIs và SDKs của AgentAI.',
+        comingSoon: 'Sắp ra mắt',
+      },
+      news: {
+        badge: 'Tin tức & Cập nhật',
+        title: 'Tin tức mới nhất từ AgentAI',
+        subtitle: 'Cập nhật sản phẩm, tin tức công ty và những hiểu biết từ đội ngũ của chúng tôi.',
+        comingSoon: 'Sắp ra mắt',
+      },
+      about: {
+        badge: 'Về chúng tôi',
+        title: 'Xây dựng tương lai của tự động hóa AI',
+        subtitle: 'Chúng tôi là đội ngũ kỹ sư, nhà thiết kế và nhà nghiên cứu AI với sứ mệnh làm cho tự động hóa thông minh trở nên dễ tiếp cận với mọi người.',
+        comingSoon: 'Sắp ra mắt',
+      },
     },
   },
 };
