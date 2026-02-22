@@ -1,6 +1,6 @@
 import { Component, HostListener, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { I18nService } from '../../core/i18n/i18n.service';
 
 @Component({
@@ -11,6 +11,15 @@ import { I18nService } from '../../core/i18n/i18n.service';
 })
 export class NavbarComponent {
   i18n = inject(I18nService);
+  private router = inject(Router);
+
+  get isProductsActive() {
+    return this.router.url.startsWith('/products');
+  }
+
+  get useWhiteText() {
+    return !this.isScrolled() && this.router.url.startsWith('/products');
+  }
 
   isScrolled = signal(false);
   isMobileMenuOpen = signal(false);

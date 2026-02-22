@@ -5,8 +5,18 @@ export const routes: Routes = [
   { path: '', component: LandingComponent },
   {
     path: 'products',
+    redirectTo: 'products/business-agent',
+    pathMatch: 'full',
+  },
+  {
+    path: 'products/business-agent',
     loadComponent: () =>
-      import('./pages/products/products.component').then(m => m.ProductsComponent),
+      import('./pages/products/business-agent/business-agent.component').then(m => m.BusinessAgentComponent),
+  },
+  {
+    path: 'products/multi-agent',
+    loadComponent: () =>
+      import('./pages/products/multi-agent/multi-agent.component').then(m => m.MultiAgentComponent),
   },
   {
     path: 'docs',

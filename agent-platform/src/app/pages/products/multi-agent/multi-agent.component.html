@@ -1,0 +1,160 @@
+<!-- ===================== HERO ===================== -->
+<section class="pt-28 pb-0 relative overflow-hidden bg-gradient-to-br from-indigo-600 to-violet-800">
+  <div class="absolute -top-20 -right-20 w-80 h-80 bg-white/10 rounded-full"></div>
+  <div class="absolute bottom-0 -left-16 w-64 h-64 bg-white/5 rounded-full"></div>
+
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end pb-16">
+      <div>
+        <div class="flex items-center gap-2 mb-5">
+          <span class="text-xs font-bold text-indigo-200 bg-white/10 px-3 py-1 rounded-full tracking-wider uppercase">Product 02</span>
+          <span class="text-xs text-indigo-300">Enterprise AI Platform</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-white leading-tight mb-5">
+          Multi-Agent<br>System
+        </h1>
+        <p class="text-indigo-100 text-lg leading-relaxed mb-8 max-w-lg">
+          For large enterprises with multiple systems that need to work in sync. AI agents coordinate across your ERP, CRM, SCM and custom platforms — delivering fully automated, end-to-end pipelines across every department.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <button class="px-6 py-3 bg-white text-indigo-700 font-semibold rounded-xl hover:bg-indigo-50 transition-colors text-sm shadow-sm">
+            Talk to Sales
+          </button>
+          <a routerLink="/docs" class="px-6 py-3 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/20 transition-colors text-sm border border-white/20">
+            Read Documentation →
+          </a>
+        </div>
+      </div>
+
+      <!-- Stats bar -->
+      <div class="grid grid-cols-2 gap-4 pb-4">
+        <div class="bg-white/10 rounded-2xl p-5 border border-white/10 backdrop-blur-sm">
+          <div class="text-3xl font-extrabold text-white mb-1">Unlimited</div>
+          <div class="text-sm text-indigo-200">Agents in pipeline</div>
+        </div>
+        <div class="bg-white/10 rounded-2xl p-5 border border-white/10 backdrop-blur-sm">
+          <div class="text-3xl font-extrabold text-white mb-1">Any</div>
+          <div class="text-sm text-indigo-200">System or platform</div>
+        </div>
+        <div class="bg-white/10 rounded-2xl p-5 border border-white/10 backdrop-blur-sm">
+          <div class="text-3xl font-extrabold text-white mb-1">100%</div>
+          <div class="text-sm text-indigo-200">End-to-end automated</div>
+        </div>
+        <div class="bg-white/10 rounded-2xl p-5 border border-white/10 backdrop-blur-sm">
+          <div class="text-3xl font-extrabold text-white mb-1">SOC 2</div>
+          <div class="text-sm text-indigo-200">Enterprise certified</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CAPABILITIES ===================== -->
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <span class="inline-block text-sm font-semibold text-indigo-600 bg-indigo-50 px-4 py-1.5 rounded-full mb-4">Capabilities</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Built for enterprise complexity</h2>
+      <p class="text-slate-500 mt-4 max-w-xl mx-auto">Four core pillars that make Multi-Agent System the right choice for large-scale, cross-department automation.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      @for (cap of capabilities; track cap.title) {
+        <div class="flex items-start gap-5 p-7 rounded-2xl border border-slate-200 hover:border-indigo-100 hover:shadow-md transition-all duration-300 bg-white">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 {{ cap.color }}">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="cap.icon" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-slate-900 mb-2 text-base">{{ cap.title }}</h3>
+            <p class="text-sm text-slate-500 leading-relaxed">{{ cap.desc }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HOW IT WORKS ===================== -->
+<section class="py-24 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <span class="inline-block text-sm font-semibold text-indigo-600 bg-indigo-50 px-4 py-1.5 rounded-full mb-4">How it works</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Enterprise deployment in 4 phases</h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      @for (step of howItWorks; track step.step) {
+        <div class="relative bg-white rounded-2xl p-7 border border-slate-200 hover:shadow-md transition-shadow">
+          <div class="text-5xl font-extrabold text-indigo-100 mb-4 leading-none">{{ step.step }}</div>
+          <h3 class="font-bold text-slate-900 mb-2">{{ step.title }}</h3>
+          <p class="text-sm text-slate-500 leading-relaxed">{{ step.desc }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ===================== USE CASES ===================== -->
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <span class="inline-block text-sm font-semibold text-indigo-600 bg-indigo-50 px-4 py-1.5 rounded-full mb-4">Use Cases</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-5">What enterprises use Multi-Agent for</h2>
+        <p class="text-slate-500 leading-relaxed mb-8">
+          When a process spans multiple systems and teams, Multi-Agent System handles the orchestration — so your people can focus on decisions, not data movement.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          @for (uc of useCases; track uc.label) {
+            <span class="flex items-center gap-2 px-4 py-2 bg-indigo-50 text-indigo-700 rounded-xl text-sm font-medium border border-indigo-100">
+              <span>{{ uc.emoji }}</span>{{ uc.label }}
+            </span>
+          }
+        </div>
+      </div>
+
+      <!-- Testimonial / quote card -->
+      <div class="bg-gradient-to-br from-indigo-50 to-white rounded-3xl p-8 border border-indigo-100">
+        <div class="flex gap-1 mb-5">
+          @for (s of [1,2,3,4,5]; track s) {
+            <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+          }
+        </div>
+        <p class="text-slate-700 text-lg leading-relaxed mb-6 italic">
+          "The multi-agent workflow is stable and easy to monitor. It connects our ERP, CRM, and warehouse system seamlessly. Setup took less than a week."
+        </p>
+        <div class="flex items-center gap-3">
+          <img src="https://i.pravatar.cc/48?img=3" alt="Marcus Chen" class="w-10 h-10 rounded-full">
+          <div>
+            <div class="font-semibold text-slate-900 text-sm">Marcus Chen</div>
+            <div class="text-xs text-slate-400">CTO, Nexus Labs</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section class="py-20 bg-slate-900">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Ready to connect your enterprise?</h2>
+    <p class="text-slate-400 text-lg mb-10 max-w-xl mx-auto">
+      Talk to our enterprise team. We'll help you design the right multi-agent architecture for your systems.
+    </p>
+    <div class="flex items-center justify-center gap-4 flex-wrap">
+      <button class="px-7 py-3.5 bg-indigo-600 text-white font-semibold rounded-xl hover:bg-indigo-500 transition-colors text-sm">
+        Talk to Sales
+      </button>
+      <a routerLink="/docs" class="px-7 py-3.5 bg-white/10 text-white font-semibold rounded-xl hover:bg-white/20 transition-colors text-sm border border-white/20">
+        Read Documentation →
+      </a>
+    </div>
+  </div>
+</section>
+
+<app-footer />

@@ -17,7 +17,7 @@
               d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
         </div>
-        <span class="text-xl font-bold text-slate-900">AgentAI</span>
+        <span class="text-xl font-bold" [ngClass]="useWhiteText ? 'text-white' : 'text-slate-900'">AgentAI</span>
       </a>
 
       <!-- Desktop Nav Links -->
@@ -25,7 +25,8 @@
 
         <!-- Home -->
         <a routerLink="/" routerLinkActive="text-blue-600" [routerLinkActiveOptions]="{exact: true}"
-          class="px-4 py-2 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-blue-50 font-medium transition-colors duration-200 text-sm">
+          class="px-4 py-2 rounded-lg font-medium transition-colors duration-200 text-sm"
+          [ngClass]="useWhiteText ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-slate-600 hover:text-blue-600 hover:bg-blue-50'">
           {{ i18n.t().navbar.home }}
         </a>
 
@@ -34,15 +35,16 @@
           (mouseenter)="openProducts()"
           (mouseleave)="closeProducts()">
 
-          <a routerLink="/products" routerLinkActive="text-blue-600"
-            class="flex items-center gap-1 px-4 py-2 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-blue-50 font-medium transition-colors duration-200 text-sm">
+          <span
+            class="flex items-center gap-1 px-4 py-2 rounded-lg font-medium transition-colors duration-200 text-sm cursor-default select-none"
+            [ngClass]="useWhiteText ? 'text-white' : (isProductsActive ? 'text-blue-600' : 'text-slate-600')">
             {{ i18n.t().navbar.products }}
             <svg class="w-4 h-4 transition-transform duration-200"
               [class.rotate-180]="isProductsOpen()"
               fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
-          </a>
+          </span>
 
           <!-- Dropdown panel -->
           @if (isProductsOpen()) {
@@ -52,7 +54,7 @@
               (mouseleave)="closeProducts()">
               <div class="p-2">
                 @for (item of i18n.t().navbar.productItems; track item.name) {
-                  <a routerLink="/products"
+                  <a [routerLink]="item.route" (click)="closeProducts()"
                     class="flex items-start gap-3 px-4 py-3 rounded-xl hover:bg-blue-50 transition-colors duration-150 cursor-pointer group">
                     <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-blue-200 transition-colors">
                       <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -67,34 +69,28 @@
                   </a>
                 }
               </div>
-              <div class="px-4 py-3 bg-slate-50 border-t border-slate-100">
-                <a routerLink="/products"
-                  class="flex items-center gap-1.5 text-xs font-semibold text-blue-600 hover:text-blue-700 transition-colors">
-                  View all products
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                  </svg>
-                </a>
-              </div>
             </div>
           }
         </div>
 
         <!-- Docs -->
         <a routerLink="/docs" routerLinkActive="text-blue-600"
-          class="px-4 py-2 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-blue-50 font-medium transition-colors duration-200 text-sm">
+          class="px-4 py-2 rounded-lg font-medium transition-colors duration-200 text-sm"
+          [ngClass]="useWhiteText ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-slate-600 hover:text-blue-600 hover:bg-blue-50'">
           {{ i18n.t().navbar.docs }}
         </a>
 
         <!-- News -->
         <a routerLink="/news" routerLinkActive="text-blue-600"
-          class="px-4 py-2 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-blue-50 font-medium transition-colors duration-200 text-sm">
+          class="px-4 py-2 rounded-lg font-medium transition-colors duration-200 text-sm"
+          [ngClass]="useWhiteText ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-slate-600 hover:text-blue-600 hover:bg-blue-50'">
           {{ i18n.t().navbar.news }}
         </a>
 
         <!-- About -->
         <a routerLink="/about" routerLinkActive="text-blue-600"
-          class="px-4 py-2 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-blue-50 font-medium transition-colors duration-200 text-sm">
+          class="px-4 py-2 rounded-lg font-medium transition-colors duration-200 text-sm"
+          [ngClass]="useWhiteText ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-slate-600 hover:text-blue-600 hover:bg-blue-50'">
           {{ i18n.t().navbar.about }}
         </a>
       </div>
@@ -105,8 +101,8 @@
         <!-- Language Toggle -->
         <button
           (click)="i18n.toggle()"
-          class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 text-xs font-semibold
-                 text-slate-600 hover:border-blue-500 hover:text-blue-600 transition-all duration-200"
+          class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-xs font-semibold transition-all duration-200"
+          [ngClass]="useWhiteText ? 'border-white/30 text-white/80 hover:border-white hover:text-white' : 'border-slate-200 text-slate-600 hover:border-blue-500 hover:text-blue-600'"
         >
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -115,7 +111,8 @@
           {{ i18n.lang() === 'en' ? 'VI' : 'EN' }}
         </button>
 
-        <button class="text-slate-600 hover:text-blue-600 font-medium transition-colors duration-200 text-sm">
+        <button class="font-medium transition-colors duration-200 text-sm"
+          [ngClass]="useWhiteText ? 'text-white/80 hover:text-white' : 'text-slate-600 hover:text-blue-600'">
           {{ i18n.t().navbar.signIn }}
         </button>
         <button class="btn-primary text-sm px-5 py-2.5">
@@ -125,7 +122,8 @@
 
       <!-- Mobile Hamburger -->
       <button
-        class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors"
+        class="md:hidden p-2 rounded-lg transition-colors"
+        [ngClass]="useWhiteText ? 'text-white hover:bg-white/10' : 'text-slate-600 hover:bg-slate-100'"
         (click)="toggleMobileMenu()"
       >
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -164,7 +162,7 @@
         @if (isMobileProductsOpen()) {
           <div class="pl-4 mt-1 space-y-1 border-l-2 border-blue-100 ml-3">
             @for (item of i18n.t().navbar.productItems; track item.name) {
-              <a routerLink="/products" (click)="closeMobileMenu()"
+              <a [routerLink]="item.route" (click)="closeMobileMenu()"
                 class="block py-2 px-3 rounded-lg text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-colors text-sm">
                 <span class="font-medium">{{ item.name }}</span>
                 <span class="block text-xs text-slate-400 mt-0.5">{{ item.desc }}</span>

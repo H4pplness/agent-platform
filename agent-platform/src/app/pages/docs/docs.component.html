@@ -10,7 +10,8 @@
     <p class="text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed mb-10">
       {{ i18n.t().pages.docs.subtitle }}
     </p>
-    <!-- Search bar placeholder -->
+
+    <!-- Search bar -->
     <div class="max-w-xl mx-auto relative">
       <div class="flex items-center bg-white border-2 border-slate-200 rounded-xl px-4 py-3 shadow-sm hover:border-blue-400 transition-colors duration-200">
         <svg class="w-5 h-5 text-slate-400 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -23,38 +24,258 @@
   </div>
 </section>
 
-<!-- ===================== DOC CATEGORIES ===================== -->
-<section class="py-16 bg-white">
+<!-- ===================== PRODUCT TAB SWITCHER ===================== -->
+<section class="bg-white border-b border-slate-200 sticky top-16 z-40">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      @for (cat of categories; track cat.label) {
-        <div class="group rounded-2xl border border-slate-200 p-6 hover:shadow-lg hover:border-blue-100 transition-all duration-300 cursor-pointer bg-white">
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 {{ cat.color }}">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="cat.icon" />
-            </svg>
-          </div>
-          <h3 class="text-base font-semibold text-slate-900 mb-2">{{ cat.label }}</h3>
-          <!-- Placeholder lines -->
-          <div class="space-y-1.5">
-            <div class="h-3 bg-slate-100 rounded w-full"></div>
-            <div class="h-3 bg-slate-100 rounded w-4/5"></div>
-          </div>
-          <div class="mt-4 flex items-center text-blue-600 text-sm font-medium opacity-60">
-            <span>View docs</span>
-            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-            </svg>
-          </div>
-        </div>
-      }
-    </div>
+    <div class="flex items-center gap-1 py-2">
+      <button
+        (click)="selectProduct('business')"
+        class="flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200"
+        [class.bg-blue-600]="activeProduct() === 'business'"
+        [class.text-white]="activeProduct() === 'business'"
+        [class.shadow-sm]="activeProduct() === 'business'"
+        [class.text-slate-600]="activeProduct() !== 'business'"
+        [class.hover:bg-slate-100]="activeProduct() !== 'business'">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        Business Agent
+      </button>
 
-    <!-- Coming soon banner -->
-    <div class="mt-16 text-center py-12 rounded-2xl bg-slate-50 border border-slate-200">
-      <span class="text-4xl mb-4 block">📚</span>
-      <h3 class="text-xl font-bold text-slate-900 mb-2">{{ i18n.t().pages.docs.comingSoon }}</h3>
-      <p class="text-slate-500 text-sm">Full documentation will be available soon.</p>
+      <button
+        (click)="selectProduct('multi')"
+        class="flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200"
+        [class.bg-indigo-600]="activeProduct() === 'multi'"
+        [class.text-white]="activeProduct() === 'multi'"
+        [class.shadow-sm]="activeProduct() === 'multi'"
+        [class.text-slate-600]="activeProduct() !== 'multi'"
+        [class.hover:bg-slate-100]="activeProduct() !== 'multi'">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        Multi-Agent System
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BUSINESS AGENT DOCS ===================== -->
+@if (activeProduct() === 'business') {
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Product label -->
+      <div class="flex items-center gap-3 mb-10">
+        <div class="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+        </div>
+        <div>
+          <h2 class="text-xl font-bold text-slate-900">Business Agent Documentation</h2>
+          <p class="text-sm text-slate-500">Everything you need to deploy AI agents into your business systems.</p>
+        </div>
+      </div>
+
+      <!-- Quick Start -->
+      <div class="mb-14">
+        <h3 class="text-base font-bold text-slate-900 mb-4 flex items-center gap-2">
+          <span class="w-1.5 h-5 bg-blue-500 rounded-full inline-block"></span>
+          Quick Start
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+          @for (doc of businessQuickStart; track doc.title) {
+            <div class="group p-6 rounded-2xl border border-slate-200 hover:border-blue-200 hover:shadow-md transition-all duration-300 cursor-pointer bg-white">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4 {{ doc.color }}">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="doc.icon" />
+                </svg>
+              </div>
+              <h4 class="font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors text-sm">{{ doc.title }}</h4>
+              <p class="text-xs text-slate-500 leading-relaxed mb-4">{{ doc.desc }}</p>
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-slate-400">{{ doc.time }}</span>
+                <svg class="w-4 h-4 text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- All Categories -->
+      <div>
+        <h3 class="text-base font-bold text-slate-900 mb-4 flex items-center gap-2">
+          <span class="w-1.5 h-5 bg-blue-500 rounded-full inline-block"></span>
+          All Topics
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          @for (cat of businessCategories; track cat.label) {
+            <div class="group p-6 rounded-2xl border border-slate-200 hover:border-blue-100 hover:shadow-md transition-all duration-300 cursor-pointer bg-white">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 {{ cat.color }}">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="cat.icon" />
+                  </svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center justify-between mb-1">
+                    <h4 class="font-bold text-slate-900 text-sm group-hover:text-blue-600 transition-colors">{{ cat.label }}</h4>
+                    <span class="text-xs text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full flex-shrink-0 ml-2">{{ cat.count }}</span>
+                  </div>
+                  <p class="text-xs text-slate-500 leading-relaxed">{{ cat.desc }}</p>
+                </div>
+              </div>
+              <div class="mt-4 flex items-center text-blue-600 text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
+                Browse articles
+                <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+    </div>
+  </section>
+}
+
+<!-- ===================== MULTI-AGENT SYSTEM DOCS ===================== -->
+@if (activeProduct() === 'multi') {
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Product label -->
+      <div class="flex items-center gap-3 mb-10">
+        <div class="w-9 h-9 bg-indigo-600 rounded-xl flex items-center justify-center">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <div>
+          <h2 class="text-xl font-bold text-slate-900">Multi-Agent System Documentation</h2>
+          <p class="text-sm text-slate-500">Architecture, orchestration, and enterprise integration for multi-agent pipelines.</p>
+        </div>
+      </div>
+
+      <!-- Quick Start -->
+      <div class="mb-14">
+        <h3 class="text-base font-bold text-slate-900 mb-4 flex items-center gap-2">
+          <span class="w-1.5 h-5 bg-indigo-500 rounded-full inline-block"></span>
+          Quick Start
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+          @for (doc of multiQuickStart; track doc.title) {
+            <div class="group p-6 rounded-2xl border border-slate-200 hover:border-indigo-200 hover:shadow-md transition-all duration-300 cursor-pointer bg-white">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4 {{ doc.color }}">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="doc.icon" />
+                </svg>
+              </div>
+              <h4 class="font-bold text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors text-sm">{{ doc.title }}</h4>
+              <p class="text-xs text-slate-500 leading-relaxed mb-4">{{ doc.desc }}</p>
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-slate-400">{{ doc.time }}</span>
+                <svg class="w-4 h-4 text-indigo-500 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- All Categories -->
+      <div>
+        <h3 class="text-base font-bold text-slate-900 mb-4 flex items-center gap-2">
+          <span class="w-1.5 h-5 bg-indigo-500 rounded-full inline-block"></span>
+          All Topics
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          @for (cat of multiCategories; track cat.label) {
+            <div class="group p-6 rounded-2xl border border-slate-200 hover:border-indigo-100 hover:shadow-md transition-all duration-300 cursor-pointer bg-white">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 {{ cat.color }}">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="cat.icon" />
+                  </svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center justify-between mb-1">
+                    <h4 class="font-bold text-slate-900 text-sm group-hover:text-indigo-600 transition-colors">{{ cat.label }}</h4>
+                    <span class="text-xs text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full flex-shrink-0 ml-2">{{ cat.count }}</span>
+                  </div>
+                  <p class="text-xs text-slate-500 leading-relaxed">{{ cat.desc }}</p>
+                </div>
+              </div>
+              <div class="mt-4 flex items-center text-indigo-600 text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
+                Browse articles
+                <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+    </div>
+  </section>
+}
+
+<!-- ===================== COMMUNITY / SUPPORT STRIP ===================== -->
+<section class="py-16 bg-slate-50 border-t border-slate-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+
+      <div class="text-center p-6">
+        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+          </svg>
+        </div>
+        <h4 class="font-bold text-slate-900 mb-2">Community Forum</h4>
+        <p class="text-sm text-slate-500">Ask questions and share solutions with other AgentAI users.</p>
+        <a href="#" class="inline-block mt-4 text-blue-600 text-sm font-semibold hover:text-blue-700">
+          Visit Forum →
+        </a>
+      </div>
+
+      <div class="text-center p-6">
+        <div class="w-12 h-12 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+        </div>
+        <h4 class="font-bold text-slate-900 mb-2">API Reference</h4>
+        <p class="text-sm text-slate-500">Complete REST API reference with request/response examples.</p>
+        <a href="#" class="inline-block mt-4 text-green-600 text-sm font-semibold hover:text-green-700">
+          Open API Docs →
+        </a>
+      </div>
+
+      <div class="text-center p-6">
+        <div class="w-12 h-12 bg-violet-100 text-violet-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+        </div>
+        <h4 class="font-bold text-slate-900 mb-2">Priority Support</h4>
+        <p class="text-sm text-slate-500">Pro and Enterprise customers get direct access to our support team.</p>
+        <a href="#" class="inline-block mt-4 text-violet-600 text-sm font-semibold hover:text-violet-700">
+          Contact Support →
+        </a>
+      </div>
+
     </div>
   </div>
 </section>

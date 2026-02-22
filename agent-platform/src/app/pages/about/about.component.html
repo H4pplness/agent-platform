@@ -1,4 +1,4 @@
-<!-- ===================== ABOUT HERO ===================== -->
+<!-- ===================== HERO ===================== -->
 <section class="pt-32 pb-20 bg-gradient-to-b from-slate-50 to-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <span class="inline-block text-sm font-semibold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4">
@@ -13,7 +13,7 @@
   </div>
 </section>
 
-<!-- ===================== STATS ===================== -->
+<!-- ===================== STATS BAR ===================== -->
 <section class="py-12 bg-white border-y border-slate-100">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
@@ -27,59 +27,285 @@
   </div>
 </section>
 
-<!-- ===================== MISSION ===================== -->
-<section class="py-20 bg-white">
+<!-- ===================== 1. MISSION & VISION ===================== -->
+<section class="py-24 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      <div>
-        <h2 class="text-3xl font-bold text-slate-900 mb-6">Our Mission</h2>
-        <div class="space-y-4 text-slate-500 leading-relaxed">
-          <div class="h-4 bg-slate-100 rounded w-full"></div>
-          <div class="h-4 bg-slate-100 rounded w-5/6"></div>
-          <div class="h-4 bg-slate-100 rounded w-4/6"></div>
-          <div class="h-4 bg-slate-100 rounded w-full mt-4"></div>
-          <div class="h-4 bg-slate-100 rounded w-5/6"></div>
+    <div class="text-center mb-16">
+      <span class="inline-block text-sm font-semibold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4">
+        Mission & Vision
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Why we exist</h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+      <!-- Mission -->
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 to-blue-800 p-10 text-white">
+        <div class="absolute -top-12 -right-12 w-48 h-48 bg-white/10 rounded-full"></div>
+        <div class="absolute -bottom-8 -left-8 w-36 h-36 bg-white/5 rounded-full"></div>
+        <div class="relative">
+          <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-4">Our Mission</h3>
+          <p class="text-blue-100 leading-relaxed text-lg">
+            To empower every team — from startups to Fortune 500 — with intelligent automation that works as hard as they do. We believe AI agents should be a tool for everyone, not just those with deep technical expertise.
+          </p>
+          <div class="mt-8 pt-8 border-t border-white/20">
+            <p class="text-sm text-blue-200 font-medium italic">
+              "Make AI automation as natural as writing an email."
+            </p>
+          </div>
         </div>
       </div>
 
-      <!-- Values -->
-      <div class="space-y-4">
-        @for (v of values; track v.title) {
-          <div class="flex items-start gap-4 p-5 rounded-xl border border-slate-200 hover:border-blue-100 hover:shadow-sm transition-all">
-            <div class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 {{ v.color }}">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="v.icon" />
-              </svg>
-            </div>
-            <div class="flex-1">
-              <h4 class="font-semibold text-slate-900 mb-2">{{ v.title }}</h4>
-              <div class="h-3 bg-slate-100 rounded w-full mb-1"></div>
-              <div class="h-3 bg-slate-100 rounded w-4/5"></div>
-            </div>
+      <!-- Vision -->
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-violet-600 to-purple-800 p-10 text-white">
+        <div class="absolute -top-12 -right-12 w-48 h-48 bg-white/10 rounded-full"></div>
+        <div class="absolute -bottom-8 -left-8 w-36 h-36 bg-white/5 rounded-full"></div>
+        <div class="relative">
+          <div class="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
           </div>
-        }
+          <h3 class="text-2xl font-bold mb-4">Our Vision</h3>
+          <p class="text-violet-100 leading-relaxed text-lg">
+            A world where human creativity is amplified by AI — where people spend their time on what matters most, and intelligent agents handle the rest. We're building toward a future where every business runs on AI-native workflows.
+          </p>
+          <div class="mt-8 pt-8 border-t border-white/20">
+            <p class="text-sm text-violet-200 font-medium italic">
+              "The best AI is one you forget is there."
+            </p>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- ===================== TEAM ===================== -->
-<section class="py-20 bg-slate-50">
+<!-- ===================== 2. THE STORY ===================== -->
+<section class="py-24 bg-slate-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl font-bold text-slate-900 mb-4">Meet the Team</h2>
-      <p class="text-slate-500">{{ i18n.t().pages.about.comingSoon }}</p>
+    <div class="text-center mb-16">
+      <span class="inline-block text-sm font-semibold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4">
+        The Story
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">How we got here</h2>
     </div>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
-      @for (t of teamPlaceholders; track $index) {
-        <div class="text-center">
-          <div class="w-20 h-20 bg-slate-200 rounded-full mx-auto mb-3 animate-pulse"></div>
-          <div class="h-3 bg-slate-200 rounded w-16 mx-auto mb-1"></div>
-          <div class="h-2.5 bg-slate-100 rounded w-12 mx-auto"></div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+      <!-- Narrative -->
+      <div class="space-y-6 text-slate-600 leading-relaxed text-lg">
+        <p>
+          In 2021, <span class="font-semibold text-slate-900">Alex Morgan</span> and <span class="font-semibold text-slate-900">Jamie Liu</span> were both running large AI teams at their respective companies — Alex at Google, Jamie at Amazon. They kept running into the same problem: building AI-powered automation was expensive, slow, and required armies of ML engineers.
+        </p>
+        <p>
+          They believed it didn't have to be that way. In early 2022, they left their jobs, moved into a shared apartment in San Francisco, and started building what would become AgentAI.
+        </p>
+        <p>
+          The first version was rough — a command-line tool with five commands and zero UI. But the early users loved the idea. Within six months, the team had grown to 10 people, closed a seed round, and shipped a product that real teams were using every day.
+        </p>
+        <p>
+          Today, AgentAI powers automation for over <span class="font-semibold text-slate-900">500 companies</span> across 30+ countries. We've never lost sight of why we started: to give every team the superpower of intelligent automation.
+        </p>
+
+        <!-- Pull quote -->
+        <div class="relative pl-6 border-l-4 border-blue-500 mt-10">
+          <p class="text-xl text-slate-800 font-medium italic leading-snug">
+            "We didn't quit our jobs to build another SaaS tool. We quit to solve a problem that was quietly costing every company millions."
+          </p>
+          <p class="mt-3 text-sm font-semibold text-blue-600">— Alex Morgan, CEO & Co-founder</p>
+        </div>
+      </div>
+
+      <!-- Visual timeline sidebar -->
+      <div class="space-y-6">
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <div>
+              <div class="text-sm font-medium text-slate-500">Headcount</div>
+              <div class="text-2xl font-extrabold text-slate-900">40+ people</div>
+            </div>
+          </div>
+          <p class="text-sm text-slate-400">From 2 founders in a studio apartment to a distributed team across 3 countries.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-10 h-10 bg-green-100 text-green-600 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+            </div>
+            <div>
+              <div class="text-sm font-medium text-slate-500">Tasks Automated</div>
+              <div class="text-2xl font-extrabold text-slate-900">10M+ / month</div>
+            </div>
+          </div>
+          <p class="text-sm text-slate-400">Our platform processes tens of millions of agent tasks every single month.</p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-10 h-10 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center flex-shrink-0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <div class="text-sm font-medium text-slate-500">Countries Served</div>
+              <div class="text-2xl font-extrabold text-slate-900">30+ countries</div>
+            </div>
+          </div>
+          <p class="text-sm text-slate-400">From startups in Vietnam to enterprise teams in the United States and Europe.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 3. THE TEAM ===================== -->
+<section class="py-24 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <span class="inline-block text-sm font-semibold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4">
+        The Team
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">The people behind AgentAI</h2>
+      <p class="text-slate-500 mt-4 max-w-xl mx-auto">Engineers, designers, and researchers who left great companies to build something better.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      @for (member of teamMembers; track member.name) {
+        <div class="group bg-slate-50 rounded-2xl p-6 hover:bg-white hover:shadow-lg hover:border hover:border-slate-200 border border-transparent transition-all duration-300">
+          <img
+            [src]="member.avatar"
+            [alt]="member.name"
+            class="w-16 h-16 rounded-2xl object-cover mb-4 group-hover:shadow-md transition-shadow"
+          />
+          <div class="font-bold text-slate-900 text-base mb-0.5">{{ member.name }}</div>
+          <div class="text-sm font-medium text-blue-600 mb-3">{{ member.role }}</div>
+          <p class="text-sm text-slate-500 leading-relaxed">{{ member.bio }}</p>
         </div>
       }
     </div>
+
+    <div class="mt-12 text-center">
+      <p class="text-slate-400 text-sm">We're a team of 40+ across San Francisco, Singapore, and Hanoi.</p>
+      <a href="#" class="inline-flex items-center gap-2 mt-4 text-blue-600 font-semibold text-sm hover:text-blue-700 transition-colors">
+        See open roles
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 4. CORE VALUES ===================== -->
+<section class="py-24 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <span class="inline-block text-sm font-semibold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4">
+        Core Values
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">What we believe in</h2>
+      <p class="text-slate-500 mt-4 max-w-xl mx-auto">These aren't posters on the wall. They're how we make decisions every day.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      @for (v of coreValues; track v.title) {
+        <div class="bg-white rounded-2xl p-8 border border-slate-200 hover:border-blue-100 hover:shadow-md transition-all duration-300">
+          <div class="w-12 h-12 rounded-2xl flex items-center justify-center mb-5 {{ v.color }}">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="v.icon" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-3">{{ v.title }}</h3>
+          <p class="text-slate-500 leading-relaxed text-sm">{{ v.desc }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 5. MILESTONES ===================== -->
+<section class="py-24 bg-white">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <span class="inline-block text-sm font-semibold text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4">
+        Milestones
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Our journey so far</h2>
+      <p class="text-slate-500 mt-4 max-w-xl mx-auto">From a two-person idea to a global platform — one milestone at a time.</p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="relative">
+      <!-- Vertical line -->
+      <div class="absolute left-8 sm:left-1/2 top-0 bottom-0 w-px bg-slate-200 -translate-x-1/2"></div>
+
+      <div class="space-y-12">
+        @for (m of milestones; track m.title; let i = $index) {
+          <div class="relative flex items-start gap-6 sm:gap-0" [class.sm:flex-row-reverse]="i % 2 !== 0">
+
+            <!-- Node -->
+            <div class="absolute left-8 sm:left-1/2 -translate-x-1/2 flex flex-col items-center">
+              <div class="w-10 h-10 rounded-full border-2 flex items-center justify-center z-10 transition-colors"
+                [class.bg-blue-600]="m.highlight"
+                [class.border-blue-600]="m.highlight"
+                [class.bg-white]="!m.highlight"
+                [class.border-slate-300]="!m.highlight">
+                <svg class="w-4 h-4" [class.text-white]="m.highlight" [class.text-slate-400]="!m.highlight"
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="m.icon" />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Content card — left or right depending on index -->
+            <div class="ml-20 sm:ml-0 sm:w-[calc(50%-2.5rem)]"
+              [class.sm:mr-auto]="i % 2 !== 0"
+              [class.sm:ml-auto]="i % 2 === 0">
+              <div class="bg-slate-50 rounded-2xl p-6 border hover:shadow-md transition-shadow"
+                [class.border-blue-200]="m.highlight"
+                [class.border-slate-200]="!m.highlight">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="text-xs font-bold text-white px-2.5 py-0.5 rounded-full"
+                    [class.bg-blue-600]="m.highlight"
+                    [class.bg-slate-400]="!m.highlight">
+                    {{ m.year }}
+                  </span>
+                  <span class="text-xs font-medium text-slate-400">{{ m.quarter }}</span>
+                  @if (m.highlight) {
+                    <span class="text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full ml-auto">Key moment</span>
+                  }
+                </div>
+                <h3 class="text-base font-bold text-slate-900 mb-2">{{ m.title }}</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">{{ m.desc }}</p>
+              </div>
+            </div>
+
+          </div>
+        }
+      </div>
+    </div>
+
   </div>
 </section>
 

@@ -9,7 +9,7 @@ export interface Translations {
     about: string;
     signIn: string;
     getStarted: string;
-    productItems: { name: string; desc: string }[];
+    productItems: { name: string; desc: string; route: string }[];
   };
   hero: {
     badge: string;
@@ -107,10 +107,8 @@ export const translations: Record<Language, Translations> = {
       signIn: 'Sign In',
       getStarted: 'Get Started Free',
       productItems: [
-        { name: 'Agent Builder', desc: 'Define your product here' },
-        { name: 'Automation Engine', desc: 'Define your product here' },
-        { name: 'Analytics Suite', desc: 'Define your product here' },
-        { name: 'Enterprise Platform', desc: 'Define your product here' },
+        { name: 'Business Agent', desc: 'AI automation for your existing business systems', route: '/products/business-agent' },
+        { name: 'Multi-Agent System', desc: 'Coordinate AI agents across your entire enterprise', route: '/products/multi-agent' },
       ],
     },
 
@@ -297,10 +295,8 @@ export const translations: Record<Language, Translations> = {
       signIn: 'Đăng nhập',
       getStarted: 'Bắt đầu miễn phí',
       productItems: [
-        { name: 'Agent Builder', desc: 'Tự định nghĩa sản phẩm tại đây' },
-        { name: 'Automation Engine', desc: 'Tự định nghĩa sản phẩm tại đây' },
-        { name: 'Analytics Suite', desc: 'Tự định nghĩa sản phẩm tại đây' },
-        { name: 'Enterprise Platform', desc: 'Tự định nghĩa sản phẩm tại đây' },
+        { name: 'Business Agent', desc: 'Tự động hóa AI cho các hệ thống doanh nghiệp hiện có', route: '/products/business-agent' },
+        { name: 'Multi-Agent System', desc: 'Điều phối AI agents trên toàn bộ hệ thống doanh nghiệp', route: '/products/multi-agent' },
       ],
     },
 
